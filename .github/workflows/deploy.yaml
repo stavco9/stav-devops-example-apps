@@ -55,7 +55,7 @@ jobs:
         helm repo add $REPO_ALIAS $REPO
         helm upgrade --install $RELEASE $REPO_ALIAS/$CHART -f $VALUES
       env:
-        KUBECONFIG_FILE: '${{ secrets.K8S_KUBECONFIG_FLASK_SAMPLE_QA }}'
+        KUBECONFIG: '${{ secrets.K8S_KUBECONFIG_FLASK_SAMPLE_QA }}'
         REPO: https://stavco9.github.io/stav-devops-infra/helm
         REPO_ALIAS: stav-devops-helm
         RELEASE: stav-poc
