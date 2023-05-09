@@ -52,7 +52,8 @@ jobs:
     - name: Deploy to qa environment in Kubernetes
       id: deploy-k8s-qa
       run: |
-        echo $KUBECONFIG_FILE > $KUBECONFIG
+        mkdir -p ~/.kube
+        echo $KUBECONFIG_FILE > ~/.kube/config
         helm repo add $REPO_ALIAS $REPO
         helm upgrade --install $RELEASE $REPO_ALIAS/$CHART -f $VALUES
       env:
