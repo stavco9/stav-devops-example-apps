@@ -51,7 +51,6 @@ jobs:
 
     - name: Deploy to qa environment in Kubernetes
       id: deploy-k8s-qa
-      uses: 'deliverybot/helm@v1'
       run: |
         helm repo add $REPO_ALIAS $REPO
         helm upgrade --install $RELEASE $REPO_ALIAS/$CHART -f $VALUES
