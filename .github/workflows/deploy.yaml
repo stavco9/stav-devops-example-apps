@@ -50,17 +50,18 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
     - name: Deploy to qa environment in Kubernetes
+      id: deploy-k8s-qa
       uses: 'deliverybot/helm@v1'
-        with:
-          repo: https://stavco9.github.io/stav-devops-infra/helm
-          repo-alias: stav-devops-helm
-          release: 'stav-poc'
-          namespace: 'flask-sample-qa'
-          chart: 'flask-sample'
-          value-files: >-
-          [
-            "deployment/qa.yaml
-          ]
+      with:
+        repo: https://stavco9.github.io/stav-devops-infra/helm
+        repo-alias: stav-devops-helm
+        release: 'stav-poc'
+        namespace: 'flask-sample-qa'
+        chart: 'flask-sample'
+        value-files: >-
+        [
+          "deployment/qa.yaml
+        ]
       env:
         KUBECONFIG_FILE: '${{ secrets.K8S_KUBECONFIG_FLASK_SAMPLE_QA }}'
 
