@@ -59,8 +59,8 @@ jobs:
         namespace: 'flask-sample-qa'
         chart: 'flask-sample'
         value-files: >-
-        [
-          "deployment/qa.yaml
+        [ 
+          "deployment/qa.yaml"
         ]
       env:
         KUBECONFIG_FILE: '${{ secrets.K8S_KUBECONFIG_FLASK_SAMPLE_QA }}'
