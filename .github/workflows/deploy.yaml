@@ -7,8 +7,8 @@ on:
 
 jobs:
   
-  build:    
-    name: Build Image
+  build_deploy:    
+    name: Build and deploy image
     runs-on: ubuntu-latest
 
     steps:
@@ -42,13 +42,8 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-  notify-slack-fail:
-    name: Build Image
-    runs-on: ubuntu-latest
-    if: failure()
-
-    steps:
     - name: Notify Slack
+      if: failure()
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
