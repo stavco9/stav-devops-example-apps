@@ -47,6 +47,8 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: ${{ vars.SLACK_CHANNEL }}-Github
+        SLACK_ICON: https://img.icons8.com/?size=50&id=3tC9EQumUAuq&format=png
         SLACK_CHANNEL: ${{ vars.SLACK_CHANNEL }}
         SLACK_TITLE: Pipeline has been failed !!
         SLACK_COLOR: ${{ job.status }}
