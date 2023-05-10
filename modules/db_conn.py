@@ -1,12 +1,13 @@
 import psycopg2
 import json
 import os
+import config
 from modules.aws_conn import AWSConn
 from modules.logger import Logger
 
 class DBConn():
     def __init__(self, rds_conn_aws_secret):
-        self.aws_client = AWSConn()
+        self.aws_client = AWSConn(region=config.DB_SECRET_REGION)
         self.logger = Logger()
         secret_val = self.aws_client.get_secret_value(rds_conn_aws_secret)
 
