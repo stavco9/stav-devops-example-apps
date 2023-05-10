@@ -15,11 +15,10 @@ class AWSConn():
         while not session and time.time() < timeout_start + timeout_seconds:
             try:
                 session = boto3.Session()
-                self.s3_resource = session.resource('s3')
                 self.s3_resource_client = self.s3_resource.meta.client
-                self.s3_client = session.client('s3')
                 self.secrets_client = session.client('secretsmanager')
             except Exception as e:
+                self.logger.error(e)
                 session = None
 
     def get_secret_value(self, secret_name):
