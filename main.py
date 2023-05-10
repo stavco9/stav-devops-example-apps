@@ -26,13 +26,15 @@ def metrics_sample():
 @app.route('/db_test_conn')
 def db_conn():
     db_conn_msg = "Success"
+    status_code = 200
 
     try:
         db_conn = DBConn(rds_conn_aws_secret=config.DB_SECRET_NAME)
     except Exception as e:
         db_conn_msg = "Connection failed {}".format(e)
+        status_code = 500
 
-    return db_conn_msg
+    return db_conn_msg, status_code
 
 @app.route('/inc')
 def increase_session():
