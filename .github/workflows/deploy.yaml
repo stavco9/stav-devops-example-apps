@@ -80,10 +80,10 @@ jobs:
         helm upgrade --install $RELEASE $REPO_ALIAS/$CHART -f $VALUES
       env:
         KUBECONFIG_FILE: '${{ secrets.K8S_KUBECONFIG_FLASK_SAMPLE_PROD }}'
-        REPO: {{ vars.HELM_REPO }}
-        REPO_ALIAS: {{ vars.HELM_REPO_ALIAS }}
+        REPO: ${{ vars.HELM_REPO }}
+        REPO_ALIAS: ${{ vars.HELM_REPO_ALIAS }}
         RELEASE: ${{ steps.prod-values-name.outputs.data }}
-        CHART: {{ vars.HELM_CHART }}
+        CHART: ${{ vars.HELM_CHART }}
         VALUES: 'deployment/prod.yaml'
 
     - name: Notify Slack
