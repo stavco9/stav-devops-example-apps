@@ -58,10 +58,10 @@ jobs:
         helm upgrade --install $RELEASE $REPO_ALIAS/$CHART -f $VALUES
       env:
         KUBECONFIG_FILE: '${{ secrets.K8S_KUBECONFIG_FLASK_SAMPLE_QA }}'
-        REPO: {{ vars.HELM_REPO }}
-        REPO_ALIAS: {{ vars.HELM_REPO_ALIAS }}
+        REPO: ${{ vars.HELM_REPO }}
+        REPO_ALIAS: ${{ vars.HELM_REPO_ALIAS }}
         RELEASE: ${{ steps.qa-values-name.outputs.data }}
-        CHART: {{ vars.HELM_CHART }}
+        CHART: ${{ vars.HELM_CHART }}
         VALUES: 'deployment/qa.yaml'
 
     - name: Get prod microservice name
