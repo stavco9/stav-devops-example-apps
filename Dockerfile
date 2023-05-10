@@ -3,6 +3,9 @@ FROM python:3.8-slim-buster
 ARG LISTEN_PORT=3000
 ENV LISTEN_PORT=${LISTEN_PORT}
 
+# Install requirements for PG Library
+RUN apt install -y libpq-dev
+
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
