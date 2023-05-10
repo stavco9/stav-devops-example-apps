@@ -1,5 +1,5 @@
 
-name: Build and deploy
+name: Build and deploy - Main
 
 on: 
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   
   build_deploy:    
-    name: Build and deploy image
+    name: Build and deploy image for qa and prod
     runs-on: ubuntu-latest
 
     steps:
