@@ -1,7 +1,7 @@
 # Global variables
 microservice:
   name: stav-poc
-  tag: "1.0"
+  tag: "1.1"
   environment: dev
   logLevel: DEBUG
   port: 3000
