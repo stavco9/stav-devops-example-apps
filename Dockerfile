@@ -4,7 +4,8 @@ ARG LISTEN_PORT=3000
 ENV LISTEN_PORT=${LISTEN_PORT}
 
 # Install requirements for PG Library
-RUN apt install -y libpq-dev
+RUN apt update && \
+    apt install -y gcc libpq-dev
 
 WORKDIR /app
 
