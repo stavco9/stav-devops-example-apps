@@ -14,6 +14,7 @@ class AWSConn():
         session = None
         while not session and time.time() < timeout_start + timeout_seconds:
             try:
+                # Test message
                 session = boto3.Session()
                 self.secrets_client = session.client('secretsmanager')
             except Exception as e:
