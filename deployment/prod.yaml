@@ -30,4 +30,4 @@ prometheusMetrics:
 
 # If enableing ingress, the external URL will be https://{{ microserviceName }}-{{ environment }}.k8s.stavco9.com
 ingress:
-  enabled: false
+  enabled: true
