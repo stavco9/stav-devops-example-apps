@@ -1,2 +1,4 @@
 flask==2.3.2
 prometheus-client==0.16.0
+psycopg2==2.9.5
+boto3==1.26.20
